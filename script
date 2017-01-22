@@ -1,0 +1,9 @@
+:local emailAddress "your-email@example.com"
+
+/system routerboard
+
+:if ([get current-firmware] != [get upgrade-firmware]) do={ 
+:log info "A new firmware update is available. Sending email..."
+
+/tool e-mail send to="$emailAddress" subject="[Mikrotik] Fireware Update Available" body="A new update is available for your Mikrotik device"
+}
